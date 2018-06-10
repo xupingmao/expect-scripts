@@ -12,9 +12,16 @@ expect {
 
 spawn ls
 expect {
-    "abc*"    { puts "find file startswith 001" }
-    "def*"    { puts "find file startswith 002" }
+    "abc*"    { puts "find file startswith abc" }
+    "def*"    { puts "find file startswith def" }
     default   { puts "can not find target file" }
+}
+
+spawn ls
+
+expect {
+    "abc*" { puts "startswith abc" }
+    default  abort
 }
 
 # interact
